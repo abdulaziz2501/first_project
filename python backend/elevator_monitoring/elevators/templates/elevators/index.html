@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Elevator Status</title>
+</head>
+<body>
+    <h1>Elevator Status</h1>
+    <ul>
+        {% for elevator in elevators %}
+            <li>
+                {{ elevator.name }} - 
+                {% if elevator.status %}Working{% else %}Not Working{% endif %}
+                <a href="{% url 'update_status' elevator.pk %}">Update Status</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
